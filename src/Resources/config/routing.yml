@@ -1,0 +1,8 @@
+agentur1601com_core_backend:
+  path: /contao/agentur1601com/core
+  defaults:
+    _controller: Agentur1601com\CoreBundle\Controller\CoreBackendController::execute
+    _scope: backend
+    _token_check: true
+    _custom_backend_view: true
+

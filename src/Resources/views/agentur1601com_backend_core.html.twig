@@ -1,0 +1,55 @@
+{% extends "@ContaoCore/Backend/be_page.html.twig" %}
+
+{% block headline %}
+    1601.communication unterstützen
+{% endblock %}
+
+{% block error %}
+{% endblock %}
+
+{% block main %}
+    <link href="{{ asset('bundles/agentur1601comcore/css/core.css') }}" type="text/css" rel="stylesheet" />
+    
+    <div class="donationWrapper">
+        <div class="headerArea">
+            <a class="logo" href="https://www.1601.com/?&utm_medium=core-bundle&utm_campaign=core-bundle-backlink" title="1601.com Werbeagentur / Kommunikationsagentur / Internetagentur" target="_blank" rel="noopener noreferrer"><img src="{{ asset('bundles/agentur1601comcore/images/logo_1601.png') }}"></a>
+            <div class="whiteCorner"></div>
+            <div class="yellowCorner"></div>
+        </div>
+        <div class="tl_listing_container">
+            <h1>Wir freuen uns über jede Unterstützung!</h1>
+            <p>Weitere Erweiterungen von <a class="backLink" href="https://www.1601.com/?&utm_medium=core-bundle&utm_campaign=core-bundle-backlink" title="1601.com Werbeagentur / Kommunikationsagentur / Internetagentur" target="_blank" rel="noopener noreferrer">1601.com</a> finden Sie auf <a href="https://packagist.org/packages/agentur1601com/">Packagist</a>.</p>
+            <p>Die Entwicklung kostenloser Contao-Erweiterungen durch 1601.communication unterstützen:</p>
+            <div class="donate">
+                <form class="test" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener noreferrer">
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input type="hidden" name="hosted_button_id" value="MA747UKVS6N3L" />
+                    <input type="submit" border="0" value="Jetzt spenden!" name="Jetzt spenden!" title="PayPal - The safer, easier way to pay online!" alt="Spenden mit über PayPal" />
+                    <div class="donatePaypal"><p>Spenden mit</p><img src="{{ asset('bundles/agentur1601comcore/images/paypal_logo.png') }}"></div>
+                </form>
+                <div class="qr-code"></div>
+            </div>
+        </div>
+        <div class="packages-container">
+            <table class="packages">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Downloads</th>
+                </tr>
+                {% for package in packages %}
+                    <tr>
+                        <td><a target="_blank" href="{{ package.url }}">{{ package.name }}</td>
+                        <td>{{ package.description }}</td>
+                        <td>{{ package.downloads }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {#<div class="footerArea">
+            <a href="https://www.1601.com/?&utm_medium=core-bundle&utm_campaign=core-bundle-backlink" title="1601.com Werbeagentur / Kommunikationsagentur / Internetagentur" target="_blank" rel="noopener noreferrer">1601.com</a>
+            <a href="https://www.1601.com/impressum/">Impressum</a>
+            <a href="https://www.1601.com/datenschutz/">Datenschutz</a>
+        </div>#}
+    </div>
+{% endblock %}
