@@ -129,6 +129,7 @@
 .donationWrapper .tl_listing_container .donate form input[type=submit] {
     border: 0;
     padding: 1em;
+    line-height: 1;
     background: #ffd500;
     color: #fff;
     font-size: 2.4vw;
@@ -260,5 +261,12 @@
 @media screen and (max-width: 991px) {
     .donationWrapper .headerArea .whiteCorner {
         left: calc(-25% + 54px);
+    }
+}
+
+@media screen and (min-width: 1180px) {
+    .donationWrapper .tl_listing_container .donate form input[type=submit] {
+        font-size: 30px;
+        width: 100%;
     }
 }
