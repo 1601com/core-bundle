@@ -17,9 +17,15 @@ use Symfony\Component\Routing\RouterInterface;
  */
 class GetUserNavigationListener
 {
-
+    /**
+     * @var RouterInterface
+     */
     private $_routerInterface;
 
+    /**
+     * GetUserNavigationListener constructor.
+     * @param RouterInterface $_routerInterface
+     */
     public function __construct(RouterInterface $_routerInterface)
     {
         $this->_routerInterface = $_routerInterface;
@@ -32,12 +38,16 @@ class GetUserNavigationListener
      */
     public function __invoke(array $modules, bool $showAll): array
     {
-        $modules['agentur1601com']['modules']['core'] = [
-            'label' => 'Unterstützen',
-            'title' => 'The core bundle',
-            'class' => 'agentur1601com',
-            'href' => $this->_routerInterface->generate('agentur1601com_core_backend'),
-        ];
+        $user = \Contao\BackendUser::getInstance();
+
+        if ($user->hasAccess(['core'], 'modules')) {
+            $modules['agentur1601com']['modules']['core'] = [
+                'label' => 'Unterstützen',
+                'title' => 'The core bundle',
+                'class' => 'agentur1601com',
+                'href' => $this->_routerInterface->generate('agentur1601com_core_backend'),
+            ];
+        }
 
         return $modules;
     }
